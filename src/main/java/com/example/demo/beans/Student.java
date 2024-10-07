@@ -1,23 +1,27 @@
 package com.example.demo.beans;
-
+import lombok.Getter;
+import lombok.Setter;
+import jakarta.persistence.*;
+@Setter
+@Getter
+@Entity
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String firstName;
     private String lastName;
-    public Student(String firstName, String lastName) {
+    private String username;
+    private String password;
+    public Student(String firstName, String lastName, String username, String password) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
+        this.password = password;
     }
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+
+    public Student() {
+
     }
 }
